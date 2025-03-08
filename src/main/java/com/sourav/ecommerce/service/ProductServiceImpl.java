@@ -73,6 +73,13 @@ public class ProductServiceImpl implements ProductService {
         return modelMapper.map(savedProduct, ProductDTO.class);
     }
 
+    @Override
+    public ProductDTO deleteProduct(Long productId) {
+           Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException("Product", "id", productId));
+           productRepository.delete(product);
+           return modelMapper.map(product, ProductDTO.class);
+    }
+
     private ProductResponse getProductResponse(List<Product> products) {
         if(products.isEmpty()){
             throw new isEmptyException("There are no products to show!");
