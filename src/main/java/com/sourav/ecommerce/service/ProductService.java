@@ -1,11 +1,10 @@
 package com.sourav.ecommerce.service;
 
-import com.sourav.ecommerce.model.Product;
 import com.sourav.ecommerce.payload.ProductDTO;
 import com.sourav.ecommerce.payload.ProductResponse;
 
 public interface ProductService {
-    ProductDTO addProduct(Product product, Long categoryId);
+    ProductDTO addProduct(ProductDTO productDTO, Long categoryId);
 
     ProductResponse getAll();
 
@@ -13,7 +12,7 @@ public interface ProductService {
 
     ProductResponse getByKeyword(String keyword);
 
-    ProductDTO updateProduct(Long productId, Product product);
+    ProductDTO updateProduct(Long productId, ProductDTO productDTO);
 
     ProductDTO deleteProduct(Long productId);
 }

@@ -39,7 +39,7 @@ public class MyGlobalExceptionHandler {
     @ExceptionHandler(isEmptyException.class)
     public ResponseEntity<APIResponse> isEmptyException(isEmptyException e){
         APIResponse apiResponse = new APIResponse(e.getMessage(),false);
-        return new ResponseEntity<>(apiResponse, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
     }
 
 }
